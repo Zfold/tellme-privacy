@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tell ME - Beta Tester Feedback</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f8f8f8; color: #1a1a1a; line-height: 1.6; padding: 20px; max-width: 680px; margin: 0 auto; }
+    .header { text-align: center; padding: 24px 0 20px; margin-bottom: 24px; border-bottom: 2px solid #E8C547; }
+    .logo { font-size: 32px; font-weight: 700; }
+    .logo-tell { color: #1a1a1a; }
+    .logo-me { color: #C9A730; }
+    .subtitle { font-size: 14px; color: #888; margin-top: 4px; }
+    .version { font-size: 11px; color: #aaa; margin-top: 8px; font-family: monospace; }
+    .intro { background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; padding: 16px; margin-bottom: 24px; font-size: 14px; color: #555; }
+    .section { margin-bottom: 28px; }
+    .section-title { font-size: 18px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
+    .section-desc { font-size: 13px; color: #888; margin-bottom: 14px; }
+    .task { background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; padding: 16px; margin-bottom: 10px; }
+    .task-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+    .task-number { background: #E8C547; color: #1a1a1a; font-weight: 700; font-size: 12px; width: 24px; height: 24px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .task-title { font-weight: 600; font-size: 15px; }
+    .task-steps { font-size: 13px; color: #555; margin-left: 34px; }
+    .task-steps li { margin-bottom: 4px; }
+    .feedback-q { background: #fffde7; border: 1px solid #E8C547; border-radius: 8px; padding: 12px; margin-top: 10px; margin-left: 34px; }
+    .feedback-q p { font-size: 13px; color: #555; margin-bottom: 4px; }
+    .feedback-q strong { color: #C9A730; font-size: 11px; font-family: monospace; letter-spacing: 1px; }
+    .rating-section { background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; padding: 16px; margin-bottom: 10px; }
+    .rating-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
+    .rating-row:last-child { border-bottom: none; }
+    .rating-label { font-size: 14px; color: #333; }
+    .rating-scale { font-size: 12px; color: #888; }
+    .open-q { background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; padding: 16px; margin-bottom: 10px; }
+    .open-q p { font-size: 14px; color: #333; margin-bottom: 8px; }
+    .open-q .hint { font-size: 12px; color: #aaa; font-style: italic; }
+    .footer { text-align: center; padding: 20px; margin-top: 24px; border-top: 2px solid #E8C547; }
+    .footer-brand { font-size: 16px; font-weight: 700; }
+    .footer-thanks { font-size: 13px; color: #888; margin-top: 4px; }
+    @media print {
+      body { background: #fff; }
+      .task, .rating-section, .open-q, .intro { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo"><span class="logo-tell">Tell</span><span class="logo-me">ME</span></div>
+    <div class="subtitle">Beta Tester Feedback Guide</div>
+    <div class="version">Version 1.0.0 · Closed Beta · May 2026</div>
+  </div>
+
+  <div class="intro">
+    Thank you for testing Tell ME! Your feedback directly shapes this app before public release. Please complete the tasks below and answer the feedback questions honestly — critical feedback is more valuable than praise. Testing takes approximately 20-30 minutes.
+  </div>
+
+  <!-- SECTION 1: FIRST IMPRESSIONS -->
+  <div class="section">
+    <div class="section-title">Part 1 — First Impressions</div>
+    <div class="section-desc">Complete these before doing anything else in the app.</div>
+
+    <div class="task">
+      <div class="task-header">
+        <div class="task-number">1</div>
+        <div class="task-title">Welcome Screen</div>
+      </div>
+      <div class="task-steps">
+        <ul>
+          <li>Open Tell ME for the first time</li>
+          <li>Read the welcome screen</li>
+          <li>Tap "Start Exploring"</li>
+        </ul>
+      </div>
+      <div class="feedback-q">
+        <strong>FEEDBACK</strong>
+        <p>Was the welcome screen clear about what the app does?</p>
+        <p>Did you feel excited to try it, or confused about what to do?</p>
+        <p>Anything missing from the welcome screen?</p>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-header">
+        <div class="task-number">2</div>
+        <div class="task-title">Home Screen</div>
+      </div>
+      <div class="task-steps">
+        <ul>
+          <li>Look at the home screen layout</li>
+          <li>Note the location toggle, scan count, and buttons</li>
+        </ul>
+      </div>
+      <div class="feedback-q">
+        <strong>FEEDBACK</strong>
+        <p>Is the home screen intuitive? Do you know what to do next?</p>
+        <p>Does the dark/gold design appeal to you?</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: CORE SCANNING -->
+  <div class="section">
+    <div class="section-title">Part 2 — Scanning & Identification</div>
+    <div class="section-desc">Test the core feature with at least 5 different subjects.</div>
+
+    <div class="task">
+      <div class="task-header">
+        <div class="task-number">3</div>
+        <div class="task-title">Take a Photo — Landmark or Building</div>
+      </div>
+      <div class="task-steps">
+        <ul>
+          <li>Tap "Take Photo" and photograph a recognizable building, monument, or landmark</li>
+          <li>Wait for the result screen</li>
+          <li>Read all the information provided</li>
+        </ul>
+      </div>
+      <div class="feedback-q">
+        <strong>FEEDBACK</strong>
+        <p>Was the identification correct?</p>
+        <p>Was the information interesting and accurate?</p>
+        <p>How long did the scan take? Was the wait acceptable?</p>
+        <p>What confidence percentage was shown?</p>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-header">
+        <div class="task-number">4</div>
+        <div class="task-title">Scan a Plant or Flower</div>
+      </div>
+      <div class="task-steps">
+        <ul>
+          <li>Find a plant, flower, or tree near you</li>
+          <li>Photograph it up close</li>
+          <li>Review the result</li>
+        </ul>
+      </div>
+      <div class="feedback-q">
+        <strong>FEEDBACK</strong>
+        <p>Was the plant identified correctly? If not, what was it actually?</p>
+        <p>Was the safety banner shown if applicable?</p>
+        <p>Was the growing/care information useful?</p>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-header">
+        <div class="task-number">5</div>
+        <div class="task-title">Scan Food or a Product</div>
+      </div>
+      <div class="task-steps">
+        <ul>
+          <li>Photograph a packaged food item, a dish, or a branded product</li>
+          <li>Make sure any text/labels are visible</li>
+          <li>Review the result</li>
+        </ul>
+      </div>
+      <div class="feedback-q">
+        <strong>FEEDBACK</strong>
+        <p>Was the product or food correctly identified?</p>
+        <p>Did Tell ME read the text/brand name on the packaging?</p>
+        <p>Was the information relevant and interesting?</p>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-header">
+        <div class="task-number">6</div>
+        <div class="task-title">Scan an Insect, Animal, or Bird</div>
+      </div>
+      <div class="task-steps">
+        <ul>
+          <li>Photograph any wildlife — a bug, spider, bird, pet, or even a photo of an animal from a book or screen</li>
+          <li>Review the result</li>
+        </ul>
+      </div>
+      <div class="feedback-q">
+        <strong>FEEDBACK</strong>
+        <p>Was the species identified correctly?</p>
+        <p>Were safety warnings shown for spiders or other hazardous creatures?</p>
+        <p>Did the information teach you something new?</p>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-header">
+        <div class="task-number">7</div>
+        <div class="task-title">Choose from Gallery</div>
+      </div>
+      <div class="task-steps">
+        <ul>
+          <li>Tap "Choose from Gallery" instead of taking a new photo</li>
+          <li>Select any interesting photo from your camera roll</li>
+          <li>Review the result</li>
+        </ul>
+      </div>
+      <div class="feedback-q">
+        <strong>FEEDBACK</strong>
+        <p>Did the gallery picker work smoothly?</p>
+        <p>Was the identification accurate from an existing photo?</p>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-header">
+        <div class="task-number">8</div>
+        <div class="task-title">Try "Not Quite Right?"</div>
+      </div>
+      <div class="task-steps">
+        <ul>
+          <li>Find a scan where the confidence is below 85%</li>
+          <li>If you see the "Not quite right? Try again →" button, tap it</li>
+          <li>Compare the original and alternative identifications</li>
+        </ul>
+      </div>
+      <div class="feedback-q">
+        <strong>FEEDBACK</strong>
+        <p>Did the alternative identification make more sense?</p>
+        <p>Were the Original/Alternative tabs easy to understand?</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: FOLLOW-UP CHAT -->
+  <div class="section">
+    <div class="section-title">Part 3 — Follow-Up Questions</div>
+    <div class="section-desc">Test the "Ask Your Guide" feature.</div>
+
+    <div class="task">
+      <div class="task-header">
+        <div class="task-number">9</div>
+        <div class="task-title">Ask a Follow-Up Question</div>
+      </div>
+      <div class="task-steps">
+        <ul>
+          <li>On any result screen, tap one of the suggested follow-up questions</li>
+          <li>Then type your own question in the chat box</li>
+          <li>Try at least 2 questions on one scan</li>
+        </ul>
+      </div>
+      <div class="feedback-q">
+        <strong>FEEDBACK</strong>
+        <p>Were the suggested questions relevant?</p>
+        <p>Were the answers informative and conversational (not robotic)?</p>
+        <p>Did the chat show normal text or raw code/JSON?</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: JOURNAL -->
+  <div class="section">
+    <div class="section-title">Part 4 — Travel Journal</div>
+    <div class="section-desc">Test saving, organizing, and sharing discoveries.</div>
+
+    <div class="task">
+      <div class="task-header">
+        <div class="task-number">10</div>
+        <div class="task-title">Save to Journal</div>
+      </div>
+      <div class="task-steps">
+        <ul>
+          <li>On a result screen, tap "Save"</li>
+          <li>Review the suggested collections</li>
+          <li>Select collections or create a new one</li>
+          <li>Tap "Save to Journal"</li>
+        </ul>
+      </div>
+      <div class="feedback-q">
+        <strong>FEEDBACK</strong>
+        <p>Were the suggested collections logical?</p>
+        <p>Was the save process intuitive?</p>
+        <p>Could you create a custom collection easily?</p>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-header">
+        <div class="task-number">11</div>
+        <div class="task-title">Browse Journal & Collections</div>
+      </div>
+      <div class="task-steps">
+        <ul>
+          <li>Tap the Journal button on the home screen</li>
+          <li>Switch between Collections and All Entries tabs</li>
+          <li>Open a collection and browse entries</li>
+          <li>Tap an entry to see the full detail view</li>
+          <li>Tap the image to view it full-screen</li>
+        </ul>
+      </div>
+      <div class="feedback-q">
+        <strong>FEEDBACK</strong>
+        <p>Is the journal organized well?</p>
+        <p>Did the full-screen image viewer work?</p>
+        <p>Would you actually use this as a travel journal?</p>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-header">
+        <div class="task-number">12</div>
+        <div class="task-title">Share a Collection</div>
+      </div>
+      <div class="task-steps">
+        <ul>
+          <li>Open a collection with at least 2 saved entries</li>
+          <li>Tap the Share button</li>
+          <li>Select specific entries (not all)</li>
+          <li>Tap Share to generate the PDF</li>
+          <li>Send the PDF to yourself via email or messages</li>
+          <li>Open the PDF and review it</li>
+        </ul>
+      </div>
+      <div class="feedback-q">
+        <strong>FEEDBACK</strong>
+        <p>Did the entry selection work intuitively?</p>
+        <p>Did the PDF generate and share successfully?</p>
+        <p>Did images appear in the PDF?</p>
+        <p>Was the PDF layout professional and readable?</p>
+        <p>Would you share this with friends or family?</p>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="task-header">
+        <div class="task-number">13</div>
+        <div class="task-title">Delete an Entry</div>
+      </div>
+      <div class="task-steps">
+        <ul>
+          <li>Delete one entry from your journal</li>
+          <li>Confirm the deletion in the popup</li>
+        </ul>
+      </div>
+      <div class="feedback-q">
+        <strong>FEEDBACK</strong>
+        <p>Was the confirmation dialog clear?</p>
+        <p>Did the entry disappear immediately?</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: OVERALL RATINGS -->
+  <div class="section">
+    <div class="section-title">Part 5 — Overall Ratings</div>
+    <div class="section-desc">Rate each aspect from 1 (poor) to 5 (excellent).</div>
+
+    <div class="rating-section">
+      <div class="rating-row">
+        <span class="rating-label">Identification accuracy</span>
+        <span class="rating-scale">1 · 2 · 3 · 4 · 5</span>
+      </div>
+      <div class="rating-row">
+        <span class="rating-label">Quality of information provided</span>
+        <span class="rating-scale">1 · 2 · 3 · 4 · 5</span>
+      </div>
+      <div class="rating-row">
+        <span class="rating-label">Speed of scans</span>
+        <span class="rating-scale">1 · 2 · 3 · 4 · 5</span>
+      </div>
+      <div class="rating-row">
+        <span class="rating-label">Visual design and appearance</span>
+        <span class="rating-scale">1 · 2 · 3 · 4 · 5</span>
+      </div>
+      <div class="rating-row">
+        <span class="rating-label">Ease of use</span>
+        <span class="rating-scale">1 · 2 · 3 · 4 · 5</span>
+      </div>
+      <div class="rating-row">
+        <span class="rating-label">Journal and collections feature</span>
+        <span class="rating-scale">1 · 2 · 3 · 4 · 5</span>
+      </div>
+      <div class="rating-row">
+        <span class="rating-label">PDF sharing feature</span>
+        <span class="rating-scale">1 · 2 · 3 · 4 · 5</span>
+      </div>
+      <div class="rating-row">
+        <span class="rating-label">Would you recommend this app?</span>
+        <span class="rating-scale">1 · 2 · 3 · 4 · 5</span>
+      </div>
+      <div class="rating-row">
+        <span class="rating-label">Would you pay $1.99/month for unlimited scans?</span>
+        <span class="rating-scale">1 · 2 · 3 · 4 · 5</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: OPEN FEEDBACK -->
+  <div class="section">
+    <div class="section-title">Part 6 — Open Feedback</div>
+    <div class="section-desc">Your honest thoughts in your own words.</div>
+
+    <div class="open-q">
+      <p><strong>What was the best thing about Tell ME?</strong></p>
+      <div class="hint">What feature or moment impressed you most?</div>
+    </div>
+
+    <div class="open-q">
+      <p><strong>What was the most frustrating experience?</strong></p>
+      <div class="hint">Wrong identification, slow scan, confusing UI, crash?</div>
+    </div>
+
+    <div class="open-q">
+      <p><strong>What's missing that you expected to find?</strong></p>
+      <div class="hint">Any feature you looked for but didn't see?</div>
+    </div>
+
+    <div class="open-q">
+      <p><strong>What would make you use this app regularly?</strong></p>
+      <div class="hint">Daily? Weekly? Only when traveling? Never?</div>
+    </div>
+
+    <div class="open-q">
+      <p><strong>How does Tell ME compare to Google Lens?</strong></p>
+      <div class="hint">Better in some ways? Worse? Different purpose entirely?</div>
+    </div>
+
+    <div class="open-q">
+      <p><strong>Any bugs, crashes, or errors?</strong></p>
+      <div class="hint">Please describe what you were doing when it happened and include a screenshot if possible.</div>
+    </div>
+
+    <div class="open-q">
+      <p><strong>Anything else you want us to know?</strong></p>
+      <div class="hint">Suggestions, ideas, concerns — anything goes.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: DEVICE INFO -->
+  <div class="section">
+    <div class="section-title">Part 7 — Your Device</div>
+    <div class="section-desc">Helps us troubleshoot any issues you encountered.</div>
+
+    <div class="open-q">
+      <p><strong>Phone model:</strong></p>
+      <div class="hint">e.g. Samsung Galaxy S24, Pixel 8, etc.</div>
+    </div>
+    <div class="open-q">
+      <p><strong>Android version:</strong></p>
+      <div class="hint">Settings → About phone → Android version</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand"><span class="logo-tell">Tell</span><span class="logo-me">ME</span></div>
+    <div class="footer-thanks">Thank you for helping shape Tell ME. Your feedback matters.</div>
+  </div>
+
+</body>
+</html>
