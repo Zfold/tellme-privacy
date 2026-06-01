@@ -24,35 +24,46 @@
     .task-steps { font-size: 13px; color: #555; margin-left: 34px; }
     .task-steps li { margin-bottom: 4px; }
     .feedback-q { background: #fffde7; border: 1px solid #E8C547; border-radius: 8px; padding: 12px; margin-top: 10px; margin-left: 34px; }
-    .feedback-q p { font-size: 13px; color: #555; margin-bottom: 4px; }
+    .feedback-q label { font-size: 13px; color: #555; display: block; margin-bottom: 6px; }
     .feedback-q strong { color: #C9A730; font-size: 11px; font-family: monospace; letter-spacing: 1px; }
+    .feedback-q textarea { width: 100%; min-height: 60px; border: 1px solid #ddd; border-radius: 6px; padding: 8px; font-size: 13px; font-family: inherit; resize: vertical; margin-top: 4px; }
     .rating-section { background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; padding: 16px; margin-bottom: 10px; }
-    .rating-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
+    .rating-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f0f0f0; flex-wrap: wrap; gap: 8px; }
     .rating-row:last-child { border-bottom: none; }
-    .rating-label { font-size: 14px; color: #333; }
-    .rating-scale { font-size: 12px; color: #888; }
+    .rating-label { font-size: 14px; color: #333; flex: 1; min-width: 180px; }
+    .stars { display: flex; gap: 4px; }
+    .star { width: 32px; height: 32px; border-radius: 6px; border: 1px solid #ddd; background: #fff; font-size: 14px; font-weight: 700; color: #999; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+    .star:hover { border-color: #E8C547; color: #C9A730; }
+    .star.active { background: #E8C547; color: #1a1a1a; border-color: #E8C547; }
     .open-q { background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; padding: 16px; margin-bottom: 10px; }
-    .open-q p { font-size: 14px; color: #333; margin-bottom: 8px; }
-    .open-q .hint { font-size: 12px; color: #aaa; font-style: italic; }
+    .open-q label { font-size: 14px; color: #333; display: block; margin-bottom: 4px; font-weight: 600; }
+    .open-q .hint { font-size: 12px; color: #aaa; font-style: italic; margin-bottom: 8px; }
+    .open-q textarea { width: 100%; min-height: 70px; border: 1px solid #ddd; border-radius: 6px; padding: 8px; font-size: 13px; font-family: inherit; resize: vertical; }
+    .device-row { display: flex; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+    .device-input { flex: 1; min-width: 200px; }
+    .device-input label { font-size: 13px; color: #555; display: block; margin-bottom: 4px; }
+    .device-input input { width: 100%; border: 1px solid #ddd; border-radius: 6px; padding: 8px; font-size: 13px; }
+    .submit-section { text-align: center; margin-top: 24px; padding: 20px; }
+    .submit-btn { background: #E8C547; color: #1a1a1a; border: none; border-radius: 10px; padding: 14px 32px; font-size: 16px; font-weight: 700; cursor: pointer; margin-bottom: 10px; width: 100%; max-width: 400px; }
+    .submit-btn:hover { background: #d4b33e; }
+    .submit-btn:active { transform: scale(0.98); }
+    .submit-note { font-size: 12px; color: #888; margin-top: 8px; }
+    .copied-msg { display: none; background: #e8f5e9; color: #2e7d32; border-radius: 8px; padding: 12px; margin-top: 12px; font-size: 14px; font-weight: 600; }
     .footer { text-align: center; padding: 20px; margin-top: 24px; border-top: 2px solid #E8C547; }
     .footer-brand { font-size: 16px; font-weight: 700; }
     .footer-thanks { font-size: 13px; color: #888; margin-top: 4px; }
-    @media print {
-      body { background: #fff; }
-      .task, .rating-section, .open-q, .intro { break-inside: avoid; }
-    }
   </style>
 </head>
 <body>
 
   <div class="header">
     <div class="logo"><span class="logo-tell">Tell</span><span class="logo-me">ME</span></div>
-    <div class="subtitle">Beta Tester Feedback Guide</div>
+    <div class="subtitle">Beta Tester Feedback Form</div>
     <div class="version">Version 1.0.0 · Closed Beta · May 2026</div>
   </div>
 
   <div class="intro">
-    Thank you for testing Tell ME! Your feedback directly shapes this app before public release. Please complete the tasks below and answer the feedback questions honestly — critical feedback is more valuable than praise. Testing takes approximately 20-30 minutes.
+    Thank you for testing Tell ME! Your feedback directly shapes this app before public release. Please complete the tasks below and answer the feedback questions honestly — critical feedback is more valuable than praise. Testing takes approximately 20-30 minutes. When finished, tap "Submit Feedback" at the bottom.
   </div>
 
   <!-- SECTION 1: FIRST IMPRESSIONS -->
@@ -74,9 +85,8 @@
       </div>
       <div class="feedback-q">
         <strong>FEEDBACK</strong>
-        <p>Was the welcome screen clear about what the app does?</p>
-        <p>Did you feel excited to try it, or confused about what to do?</p>
-        <p>Anything missing from the welcome screen?</p>
+        <label>Was the welcome screen clear? Did you feel excited to try it?</label>
+        <textarea data-id="q1" placeholder="Your thoughts..."></textarea>
       </div>
     </div>
 
@@ -93,8 +103,8 @@
       </div>
       <div class="feedback-q">
         <strong>FEEDBACK</strong>
-        <p>Is the home screen intuitive? Do you know what to do next?</p>
-        <p>Does the dark/gold design appeal to you?</p>
+        <label>Is the home screen intuitive? Does the design appeal to you?</label>
+        <textarea data-id="q2" placeholder="Your thoughts..."></textarea>
       </div>
     </div>
   </div>
@@ -107,21 +117,18 @@
     <div class="task">
       <div class="task-header">
         <div class="task-number">3</div>
-        <div class="task-title">Take a Photo — Landmark or Building</div>
+        <div class="task-title">Scan a Landmark or Building</div>
       </div>
       <div class="task-steps">
         <ul>
-          <li>Tap "Take Photo" and photograph a recognizable building, monument, or landmark</li>
-          <li>Wait for the result screen</li>
+          <li>Tap "Take Photo" and photograph a recognizable building or landmark</li>
           <li>Read all the information provided</li>
         </ul>
       </div>
       <div class="feedback-q">
         <strong>FEEDBACK</strong>
-        <p>Was the identification correct?</p>
-        <p>Was the information interesting and accurate?</p>
-        <p>How long did the scan take? Was the wait acceptable?</p>
-        <p>What confidence percentage was shown?</p>
+        <label>Was the identification correct? Was the information interesting? How long did it take?</label>
+        <textarea data-id="q3" placeholder="What you scanned, whether it was correct, confidence %, and your thoughts..."></textarea>
       </div>
     </div>
 
@@ -132,16 +139,13 @@
       </div>
       <div class="task-steps">
         <ul>
-          <li>Find a plant, flower, or tree near you</li>
-          <li>Photograph it up close</li>
-          <li>Review the result</li>
+          <li>Find a plant, flower, or tree and photograph it up close</li>
         </ul>
       </div>
       <div class="feedback-q">
         <strong>FEEDBACK</strong>
-        <p>Was the plant identified correctly? If not, what was it actually?</p>
-        <p>Was the safety banner shown if applicable?</p>
-        <p>Was the growing/care information useful?</p>
+        <label>Was the plant identified correctly? Was the information useful?</label>
+        <textarea data-id="q4" placeholder="What you scanned, whether it was correct, and your thoughts..."></textarea>
       </div>
     </div>
 
@@ -152,16 +156,13 @@
       </div>
       <div class="task-steps">
         <ul>
-          <li>Photograph a packaged food item, a dish, or a branded product</li>
-          <li>Make sure any text/labels are visible</li>
-          <li>Review the result</li>
+          <li>Photograph a packaged food item or branded product with visible text</li>
         </ul>
       </div>
       <div class="feedback-q">
         <strong>FEEDBACK</strong>
-        <p>Was the product or food correctly identified?</p>
-        <p>Did Tell ME read the text/brand name on the packaging?</p>
-        <p>Was the information relevant and interesting?</p>
+        <label>Was the product correctly identified? Did Tell ME read the text on the packaging?</label>
+        <textarea data-id="q5" placeholder="What you scanned, whether it was correct, and your thoughts..."></textarea>
       </div>
     </div>
 
@@ -172,15 +173,13 @@
       </div>
       <div class="task-steps">
         <ul>
-          <li>Photograph any wildlife — a bug, spider, bird, pet, or even a photo of an animal from a book or screen</li>
-          <li>Review the result</li>
+          <li>Photograph any wildlife — a bug, bird, pet, or even a photo of an animal</li>
         </ul>
       </div>
       <div class="feedback-q">
         <strong>FEEDBACK</strong>
-        <p>Was the species identified correctly?</p>
-        <p>Were safety warnings shown for spiders or other hazardous creatures?</p>
-        <p>Did the information teach you something new?</p>
+        <label>Was the species identified correctly? Did you learn something new?</label>
+        <textarea data-id="q6" placeholder="What you scanned, whether it was correct, and your thoughts..."></textarea>
       </div>
     </div>
 
@@ -191,15 +190,13 @@
       </div>
       <div class="task-steps">
         <ul>
-          <li>Tap "Choose from Gallery" instead of taking a new photo</li>
-          <li>Select any interesting photo from your camera roll</li>
-          <li>Review the result</li>
+          <li>Tap "Choose from Gallery" and select any interesting photo from your camera roll</li>
         </ul>
       </div>
       <div class="feedback-q">
         <strong>FEEDBACK</strong>
-        <p>Did the gallery picker work smoothly?</p>
-        <p>Was the identification accurate from an existing photo?</p>
+        <label>Did the gallery picker work smoothly? Was the identification accurate?</label>
+        <textarea data-id="q7" placeholder="Your thoughts..."></textarea>
       </div>
     </div>
 
@@ -210,15 +207,15 @@
       </div>
       <div class="task-steps">
         <ul>
-          <li>Find a scan where the confidence is below 85%</li>
-          <li>If you see the "Not quite right? Try again →" button, tap it</li>
-          <li>Compare the original and alternative identifications</li>
+          <li>Find a scan with confidence below 85%</li>
+          <li>Tap "Not quite right? Try again →" if it appears</li>
+          <li>Compare Original and Alternative tabs</li>
         </ul>
       </div>
       <div class="feedback-q">
         <strong>FEEDBACK</strong>
-        <p>Did the alternative identification make more sense?</p>
-        <p>Were the Original/Alternative tabs easy to understand?</p>
+        <label>Did the alternative identification make more sense? Were the tabs easy to use?</label>
+        <textarea data-id="q8" placeholder="Your thoughts..."></textarea>
       </div>
     </div>
   </div>
@@ -231,20 +228,19 @@
     <div class="task">
       <div class="task-header">
         <div class="task-number">9</div>
-        <div class="task-title">Ask a Follow-Up Question</div>
+        <div class="task-title">Ask Follow-Up Questions</div>
       </div>
       <div class="task-steps">
         <ul>
-          <li>On any result screen, tap one of the suggested follow-up questions</li>
+          <li>On any result, tap a suggested follow-up question</li>
           <li>Then type your own question in the chat box</li>
           <li>Try at least 2 questions on one scan</li>
         </ul>
       </div>
       <div class="feedback-q">
         <strong>FEEDBACK</strong>
-        <p>Were the suggested questions relevant?</p>
-        <p>Were the answers informative and conversational (not robotic)?</p>
-        <p>Did the chat show normal text or raw code/JSON?</p>
+        <label>Were the answers informative and conversational? Any raw code or JSON shown?</label>
+        <textarea data-id="q9" placeholder="Your thoughts..."></textarea>
       </div>
     </div>
   </div>
@@ -262,16 +258,14 @@
       <div class="task-steps">
         <ul>
           <li>On a result screen, tap "Save"</li>
-          <li>Review the suggested collections</li>
-          <li>Select collections or create a new one</li>
+          <li>Review suggested collections, select or create one</li>
           <li>Tap "Save to Journal"</li>
         </ul>
       </div>
       <div class="feedback-q">
         <strong>FEEDBACK</strong>
-        <p>Were the suggested collections logical?</p>
-        <p>Was the save process intuitive?</p>
-        <p>Could you create a custom collection easily?</p>
+        <label>Were the suggested collections logical? Was saving intuitive?</label>
+        <textarea data-id="q10" placeholder="Your thoughts..."></textarea>
       </div>
     </div>
 
@@ -282,43 +276,34 @@
       </div>
       <div class="task-steps">
         <ul>
-          <li>Tap the Journal button on the home screen</li>
-          <li>Switch between Collections and All Entries tabs</li>
-          <li>Open a collection and browse entries</li>
-          <li>Tap an entry to see the full detail view</li>
-          <li>Tap the image to view it full-screen</li>
+          <li>Tap Journal on the home screen</li>
+          <li>Switch between Collections and All Entries</li>
+          <li>Open a collection, tap an entry, view full-screen image</li>
         </ul>
       </div>
       <div class="feedback-q">
         <strong>FEEDBACK</strong>
-        <p>Is the journal organized well?</p>
-        <p>Did the full-screen image viewer work?</p>
-        <p>Would you actually use this as a travel journal?</p>
+        <label>Is the journal organized well? Would you use it as a travel journal?</label>
+        <textarea data-id="q11" placeholder="Your thoughts..."></textarea>
       </div>
     </div>
 
     <div class="task">
       <div class="task-header">
         <div class="task-number">12</div>
-        <div class="task-title">Share a Collection</div>
+        <div class="task-title">Share a Collection as PDF</div>
       </div>
       <div class="task-steps">
         <ul>
-          <li>Open a collection with at least 2 saved entries</li>
-          <li>Tap the Share button</li>
-          <li>Select specific entries (not all)</li>
-          <li>Tap Share to generate the PDF</li>
-          <li>Send the PDF to yourself via email or messages</li>
-          <li>Open the PDF and review it</li>
+          <li>Open a collection with at least 2 entries</li>
+          <li>Tap Share, select specific entries, tap Share again</li>
+          <li>Send the PDF to yourself and open it</li>
         </ul>
       </div>
       <div class="feedback-q">
         <strong>FEEDBACK</strong>
-        <p>Did the entry selection work intuitively?</p>
-        <p>Did the PDF generate and share successfully?</p>
-        <p>Did images appear in the PDF?</p>
-        <p>Was the PDF layout professional and readable?</p>
-        <p>Would you share this with friends or family?</p>
+        <label>Did entry selection work? Did images appear in the PDF? Would you share this?</label>
+        <textarea data-id="q12" placeholder="Your thoughts..."></textarea>
       </div>
     </div>
 
@@ -329,59 +314,112 @@
       </div>
       <div class="task-steps">
         <ul>
-          <li>Delete one entry from your journal</li>
-          <li>Confirm the deletion in the popup</li>
+          <li>Delete one entry and confirm the deletion</li>
         </ul>
       </div>
       <div class="feedback-q">
         <strong>FEEDBACK</strong>
-        <p>Was the confirmation dialog clear?</p>
-        <p>Did the entry disappear immediately?</p>
+        <label>Was the confirmation clear? Did the entry disappear?</label>
+        <textarea data-id="q13" placeholder="Your thoughts..."></textarea>
       </div>
     </div>
   </div>
 
-  <!-- SECTION 5: OVERALL RATINGS -->
+  <!-- SECTION 5: RATINGS -->
   <div class="section">
     <div class="section-title">Part 5 — Overall Ratings</div>
-    <div class="section-desc">Rate each aspect from 1 (poor) to 5 (excellent).</div>
+    <div class="section-desc">Tap a number 1 (poor) to 5 (excellent) for each.</div>
 
     <div class="rating-section">
       <div class="rating-row">
         <span class="rating-label">Identification accuracy</span>
-        <span class="rating-scale">1 · 2 · 3 · 4 · 5</span>
+        <div class="stars" data-rating="r1">
+          <div class="star" data-val="1">1</div>
+          <div class="star" data-val="2">2</div>
+          <div class="star" data-val="3">3</div>
+          <div class="star" data-val="4">4</div>
+          <div class="star" data-val="5">5</div>
+        </div>
       </div>
       <div class="rating-row">
-        <span class="rating-label">Quality of information provided</span>
-        <span class="rating-scale">1 · 2 · 3 · 4 · 5</span>
+        <span class="rating-label">Quality of information</span>
+        <div class="stars" data-rating="r2">
+          <div class="star" data-val="1">1</div>
+          <div class="star" data-val="2">2</div>
+          <div class="star" data-val="3">3</div>
+          <div class="star" data-val="4">4</div>
+          <div class="star" data-val="5">5</div>
+        </div>
       </div>
       <div class="rating-row">
         <span class="rating-label">Speed of scans</span>
-        <span class="rating-scale">1 · 2 · 3 · 4 · 5</span>
+        <div class="stars" data-rating="r3">
+          <div class="star" data-val="1">1</div>
+          <div class="star" data-val="2">2</div>
+          <div class="star" data-val="3">3</div>
+          <div class="star" data-val="4">4</div>
+          <div class="star" data-val="5">5</div>
+        </div>
       </div>
       <div class="rating-row">
-        <span class="rating-label">Visual design and appearance</span>
-        <span class="rating-scale">1 · 2 · 3 · 4 · 5</span>
+        <span class="rating-label">Visual design</span>
+        <div class="stars" data-rating="r4">
+          <div class="star" data-val="1">1</div>
+          <div class="star" data-val="2">2</div>
+          <div class="star" data-val="3">3</div>
+          <div class="star" data-val="4">4</div>
+          <div class="star" data-val="5">5</div>
+        </div>
       </div>
       <div class="rating-row">
         <span class="rating-label">Ease of use</span>
-        <span class="rating-scale">1 · 2 · 3 · 4 · 5</span>
+        <div class="stars" data-rating="r5">
+          <div class="star" data-val="1">1</div>
+          <div class="star" data-val="2">2</div>
+          <div class="star" data-val="3">3</div>
+          <div class="star" data-val="4">4</div>
+          <div class="star" data-val="5">5</div>
+        </div>
       </div>
       <div class="rating-row">
-        <span class="rating-label">Journal and collections feature</span>
-        <span class="rating-scale">1 · 2 · 3 · 4 · 5</span>
+        <span class="rating-label">Journal & collections</span>
+        <div class="stars" data-rating="r6">
+          <div class="star" data-val="1">1</div>
+          <div class="star" data-val="2">2</div>
+          <div class="star" data-val="3">3</div>
+          <div class="star" data-val="4">4</div>
+          <div class="star" data-val="5">5</div>
+        </div>
       </div>
       <div class="rating-row">
-        <span class="rating-label">PDF sharing feature</span>
-        <span class="rating-scale">1 · 2 · 3 · 4 · 5</span>
+        <span class="rating-label">PDF sharing</span>
+        <div class="stars" data-rating="r7">
+          <div class="star" data-val="1">1</div>
+          <div class="star" data-val="2">2</div>
+          <div class="star" data-val="3">3</div>
+          <div class="star" data-val="4">4</div>
+          <div class="star" data-val="5">5</div>
+        </div>
       </div>
       <div class="rating-row">
         <span class="rating-label">Would you recommend this app?</span>
-        <span class="rating-scale">1 · 2 · 3 · 4 · 5</span>
+        <div class="stars" data-rating="r8">
+          <div class="star" data-val="1">1</div>
+          <div class="star" data-val="2">2</div>
+          <div class="star" data-val="3">3</div>
+          <div class="star" data-val="4">4</div>
+          <div class="star" data-val="5">5</div>
+        </div>
       </div>
       <div class="rating-row">
-        <span class="rating-label">Would you pay $1.99/month for unlimited scans?</span>
-        <span class="rating-scale">1 · 2 · 3 · 4 · 5</span>
+        <span class="rating-label">Would you pay $3.99/month for unlimited?</span>
+        <div class="stars" data-rating="r9">
+          <div class="star" data-val="1">1</div>
+          <div class="star" data-val="2">2</div>
+          <div class="star" data-val="3">3</div>
+          <div class="star" data-val="4">4</div>
+          <div class="star" data-val="5">5</div>
+        </div>
       </div>
     </div>
   </div>
@@ -392,60 +430,170 @@
     <div class="section-desc">Your honest thoughts in your own words.</div>
 
     <div class="open-q">
-      <p><strong>What was the best thing about Tell ME?</strong></p>
+      <label>What was the best thing about Tell ME?</label>
       <div class="hint">What feature or moment impressed you most?</div>
+      <textarea data-id="o1" placeholder="Your answer..."></textarea>
     </div>
-
     <div class="open-q">
-      <p><strong>What was the most frustrating experience?</strong></p>
+      <label>What was the most frustrating experience?</label>
       <div class="hint">Wrong identification, slow scan, confusing UI, crash?</div>
+      <textarea data-id="o2" placeholder="Your answer..."></textarea>
     </div>
-
     <div class="open-q">
-      <p><strong>What's missing that you expected to find?</strong></p>
+      <label>What's missing that you expected to find?</label>
       <div class="hint">Any feature you looked for but didn't see?</div>
+      <textarea data-id="o3" placeholder="Your answer..."></textarea>
     </div>
-
     <div class="open-q">
-      <p><strong>What would make you use this app regularly?</strong></p>
+      <label>What would make you use this app regularly?</label>
       <div class="hint">Daily? Weekly? Only when traveling? Never?</div>
+      <textarea data-id="o4" placeholder="Your answer..."></textarea>
     </div>
-
     <div class="open-q">
-      <p><strong>How does Tell ME compare to Google Lens?</strong></p>
+      <label>How does Tell ME compare to Google Lens?</label>
       <div class="hint">Better in some ways? Worse? Different purpose entirely?</div>
+      <textarea data-id="o5" placeholder="Your answer..."></textarea>
     </div>
-
     <div class="open-q">
-      <p><strong>Any bugs, crashes, or errors?</strong></p>
-      <div class="hint">Please describe what you were doing when it happened and include a screenshot if possible.</div>
+      <label>Any bugs, crashes, or errors?</label>
+      <div class="hint">Describe what you were doing when it happened.</div>
+      <textarea data-id="o6" placeholder="Your answer..."></textarea>
     </div>
-
     <div class="open-q">
-      <p><strong>Anything else you want us to know?</strong></p>
+      <label>Anything else you want us to know?</label>
       <div class="hint">Suggestions, ideas, concerns — anything goes.</div>
+      <textarea data-id="o7" placeholder="Your answer..."></textarea>
     </div>
   </div>
 
-  <!-- SECTION 7: DEVICE INFO -->
+  <!-- SECTION 7: DEVICE -->
   <div class="section">
     <div class="section-title">Part 7 — Your Device</div>
-    <div class="section-desc">Helps us troubleshoot any issues you encountered.</div>
+    <div class="section-desc">Helps us troubleshoot any issues.</div>
+    <div class="open-q">
+      <div class="device-row">
+        <div class="device-input">
+          <label>Phone model</label>
+          <input type="text" data-id="device" placeholder="e.g. Samsung Galaxy S24" />
+        </div>
+        <div class="device-input">
+          <label>Android version</label>
+          <input type="text" data-id="android" placeholder="e.g. Android 15" />
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <div class="open-q">
-      <p><strong>Phone model:</strong></p>
-      <div class="hint">e.g. Samsung Galaxy S24, Pixel 8, etc.</div>
-    </div>
-    <div class="open-q">
-      <p><strong>Android version:</strong></p>
-      <div class="hint">Settings → About phone → Android version</div>
-    </div>
+  <!-- SUBMIT -->
+  <div class="submit-section">
+    <button class="submit-btn" onclick="submitFeedback()">Submit Feedback</button>
+    <div class="submit-note">Your responses will be compiled and opened in your email app.</div>
+    <div class="copied-msg" id="copiedMsg">✅ Feedback compiled! Check your email app.</div>
   </div>
 
   <div class="footer">
     <div class="footer-brand"><span class="logo-tell">Tell</span><span class="logo-me">ME</span></div>
     <div class="footer-thanks">Thank you for helping shape Tell ME. Your feedback matters.</div>
   </div>
+
+  <script>
+    // Interactive star ratings
+    document.querySelectorAll('.stars').forEach(group => {
+      group.querySelectorAll('.star').forEach(star => {
+        star.addEventListener('click', () => {
+          const val = parseInt(star.dataset.val);
+          group.querySelectorAll('.star').forEach(s => {
+            s.classList.toggle('active', parseInt(s.dataset.val) <= val);
+          });
+          group.dataset.selected = val;
+        });
+      });
+    });
+
+    // Compile and send feedback
+    function submitFeedback() {
+      const lines = [];
+      lines.push("=== TELL ME BETA FEEDBACK ===");
+      lines.push("Submitted: " + new Date().toLocaleDateString());
+      lines.push("");
+
+      // Text answers
+      const questions = {
+        q1: "Welcome Screen",
+        q2: "Home Screen",
+        q3: "Landmark/Building Scan",
+        q4: "Plant/Flower Scan",
+        q5: "Food/Product Scan",
+        q6: "Insect/Animal Scan",
+        q7: "Gallery Pick",
+        q8: "Not Quite Right Retry",
+        q9: "Follow-Up Questions",
+        q10: "Save to Journal",
+        q11: "Browse Journal",
+        q12: "Share PDF",
+        q13: "Delete Entry",
+      };
+      lines.push("--- TASK FEEDBACK ---");
+      for (const [id, label] of Object.entries(questions)) {
+        const el = document.querySelector(`textarea[data-id="${id}"]`);
+        const val = el ? el.value.trim() : "";
+        if (val) lines.push(`${label}: ${val}`);
+      }
+      lines.push("");
+
+      // Ratings
+      const ratings = {
+        r1: "Identification accuracy",
+        r2: "Quality of information",
+        r3: "Speed of scans",
+        r4: "Visual design",
+        r5: "Ease of use",
+        r6: "Journal & collections",
+        r7: "PDF sharing",
+        r8: "Would recommend",
+        r9: "Would pay $3.99/month",
+      };
+      lines.push("--- RATINGS (1-5) ---");
+      for (const [id, label] of Object.entries(ratings)) {
+        const group = document.querySelector(`.stars[data-rating="${id}"]`);
+        const val = group ? (group.dataset.selected || "not rated") : "not rated";
+        lines.push(`${label}: ${val}/5`);
+      }
+      lines.push("");
+
+      // Open feedback
+      const openQs = {
+        o1: "Best thing about Tell ME",
+        o2: "Most frustrating experience",
+        o3: "What's missing",
+        o4: "What would make you use it regularly",
+        o5: "Comparison to Google Lens",
+        o6: "Bugs or crashes",
+        o7: "Anything else",
+      };
+      lines.push("--- OPEN FEEDBACK ---");
+      for (const [id, label] of Object.entries(openQs)) {
+        const el = document.querySelector(`textarea[data-id="${id}"]`);
+        const val = el ? el.value.trim() : "";
+        if (val) lines.push(`${label}: ${val}`);
+      }
+      lines.push("");
+
+      // Device info
+      const device = document.querySelector('input[data-id="device"]');
+      const android = document.querySelector('input[data-id="android"]');
+      lines.push("--- DEVICE ---");
+      if (device && device.value.trim()) lines.push("Phone: " + device.value.trim());
+      if (android && android.value.trim()) lines.push("Android: " + android.value.trim());
+
+      const body = lines.join("\n");
+      const subject = "Tell ME Beta Feedback - " + new Date().toLocaleDateString();
+      const mailto = `mailto:timberpeakleads@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      window.location.href = mailto;
+      document.getElementById("copiedMsg").style.display = "block";
+    }
+  </script>
 
 </body>
 </html>
